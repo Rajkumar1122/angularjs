@@ -1,6 +1,8 @@
 package com.collaborate.Model;
 
-import java.sql.Date;
+
+
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,6 +14,9 @@ import javax.persistence.Table;
 public class Blog {
 	@Id
 	private int blogId;
+	private String blogName,blogContent,status,username;
+	private int likes;
+	private Date createDate;
 	public String getBlogName() {
 		return blogName;
 	}
@@ -42,6 +47,8 @@ public class Blog {
 	public void setLikes(int likes) {
 		this.likes = likes;
 	}
+	
+
 	public Date getCreateDate() {
 		return createDate;
 	}
@@ -51,9 +58,7 @@ public class Blog {
 	public void setBlogId(int blogId) {
 		this.blogId = blogId;
 	}
-	private String blogName,blogContent,status,username;
-	private int likes;
-	private Date createDate;
+	
 	private int getBlogId() {
 		return blogId;
 	}

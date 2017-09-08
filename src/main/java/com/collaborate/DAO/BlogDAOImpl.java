@@ -56,4 +56,19 @@ public class BlogDAOImpl implements BlogDAO {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	public List<Blog> getblogs() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean approvedBlog(Blog blog) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean deleteblog(int blogId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
