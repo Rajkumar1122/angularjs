@@ -16,7 +16,7 @@ import org.junit.Test;
 public class BlogDAOTest {
 
 	static BlogDAO blogDAO;
-	static Blog blog;
+	
 	@BeforeClass
 	public static void initialize()
 	{
@@ -24,16 +24,16 @@ public class BlogDAOTest {
 		annotationConfigAppContext.scan("com.collaborate");
 		annotationConfigAppContext.refresh();
 		blogDAO=(BlogDAO)annotationConfigAppContext.getBean("blogDAO");
-	 blog=(Blog)annotationConfigAppContext.getBean("blog");
+	
 	}
 	
 	@Test
 	public void createBlogtest()
 	{
-		//Blog blog=new Blog();
+		Blog blog=new Blog();
 		blog.setBlogId(111);
-		blog.setBlogName("Dravid");
-		blog.setBlogContent("Dravid is a Cricket Coach");
+		blog.setBlogName("raju");
+		blog.setBlogContent(" rajkumar");
 		
 		blog.setCreateDate(new java.util.Date());
 		blog.setStatus("NA");

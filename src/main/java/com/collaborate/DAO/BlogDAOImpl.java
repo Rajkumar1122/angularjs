@@ -2,6 +2,8 @@ package com.collaborate.DAO;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -16,7 +18,7 @@ public class BlogDAOImpl implements BlogDAO {
 	{
 		this.sessionFactory=sessionFactory;
 	}
-	
+	@Transactional
 	public boolean createBlog(Blog blog)
 	{
 	try
