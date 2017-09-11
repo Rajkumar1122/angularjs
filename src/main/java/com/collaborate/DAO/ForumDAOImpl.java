@@ -13,12 +13,12 @@ import com.collaborate.Model.Blog;
 import com.collaborate.Model.Forum;
 
 @Repository("forumDAO")
-public class ForumDaoImpl implements ForumDao{
+public class ForumDAOImpl implements ForumDAO{
 	
 	@Autowired
 	SessionFactory sessionFactory;
 	
-	public ForumDaoImpl(SessionFactory sessionFactory)
+	public ForumDAOImpl(SessionFactory sessionFactory)
 	{
 		this.sessionFactory=sessionFactory;
 	}

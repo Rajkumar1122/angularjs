@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.collaborate.Model.Forum;
 
-public interface ForumDao {
+public interface ForumDAO {
 
 	public boolean createForum(Forum forum);
 	public Forum getForumdetails(int forumId);

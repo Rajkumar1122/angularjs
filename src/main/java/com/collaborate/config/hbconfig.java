@@ -18,6 +18,7 @@ import com.collaborate.DAO.BlogDAOImpl;
 import com.collaborate.Model.Blog;
 import com.collaborate.Model.BlogComment;
 import com.collaborate.Model.Forum;
+import com.collaborate.Model.User;
 
 @Configuration
 @ComponentScan("com.collaborate")
@@ -53,6 +54,7 @@ public SessionFactory getSessionFactory()
 	localsessionFactory.addAnnotatedClass(Blog.class);
 	localsessionFactory.addAnnotatedClass(Forum.class);
 	localsessionFactory.addAnnotatedClass(BlogComment.class);
+	localsessionFactory.addAnnotatedClass(User.class);
 	System.out.println("Session created");
 	return localsessionFactory.buildSessionFactory();
 }

@@ -11,13 +11,13 @@ import org.springframework.stereotype.Repository;
 
 import com.collaborate.Model.BlogComment;
 
-@Repository("blogDAO")
-public class BlogCommentDaoImpl implements BlogCommentDAO {
+@Repository("blogcommentDAO")
+public class BlogCommentDAOImpl implements BlogCommentDAO {
 	
 	@Autowired
 	SessionFactory sessionFactory;
 	
-	public BlogCommentDaoImpl(SessionFactory sessionFactory)
+	public BlogCommentDAOImpl(SessionFactory sessionFactory)
 	{
 		this.sessionFactory=sessionFactory;
 	}
@@ -43,7 +43,7 @@ public class BlogCommentDaoImpl implements BlogCommentDAO {
 		{
 			
 			
-			 return  (BlogComment)sessionFactory.getCurrentSession().createQuery("from BlogComment where blogId="+id);
+			 return  (BlogComment)sessionFactory.getCurrentSession().createQuery("from BlogComment where Id="+id);
 			
 			
 		}
