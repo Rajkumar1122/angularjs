@@ -65,7 +65,7 @@ public class ForumDAOTest {
 	
 	
 	
-	
+	/*
     @Test
 	public void approveForumTest()
 	{
@@ -82,14 +82,9 @@ public class ForumDAOTest {
 	
 	assertTrue("problem in Approving forum",forumDAO.approveForum(forum));
 	}
+	*/
 	
 	
 	
-	
-	@Test
-	public void test()
-	{
-		fail("not yet implemented");
-	}
 	
 }

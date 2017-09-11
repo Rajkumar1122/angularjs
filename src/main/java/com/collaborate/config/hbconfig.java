@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.collaborate.DAO.BlogDAO;
 import com.collaborate.DAO.BlogDAOImpl;
 import com.collaborate.Model.Blog;
+import com.collaborate.Model.BlogComment;
 import com.collaborate.Model.Forum;
 
 @Configuration
@@ -51,6 +52,7 @@ public SessionFactory getSessionFactory()
 	localsessionFactory.addProperties(gethibernateproperties());
 	localsessionFactory.addAnnotatedClass(Blog.class);
 	localsessionFactory.addAnnotatedClass(Forum.class);
+	localsessionFactory.addAnnotatedClass(BlogComment.class);
 	System.out.println("Session created");
 	return localsessionFactory.buildSessionFactory();
 }
