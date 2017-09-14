@@ -1,36 +1,29 @@
 package com.collaborate.Model;
-
 import java.util.Date;
 
 public class User 
 {
 
 	private int userId;
-	private String Firstname,Lastname,Email,Password,Role,Status,isonline;
-	private int likes;
+	private String firstName,lastName,Password,role,status,isOnline;
+	private String emailId;
 	public int getUserId() {
 		return userId;
 	}
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-	public String getFirstname() {
-		return Firstname;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setFirstname(String firstname) {
-		Firstname = firstname;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
-	public String getLastname() {
-		return Lastname;
+	public String getLastName() {
+		return lastName;
 	}
-	public void setLastname(String lastname) {
-		Lastname = lastname;
-	}
-	public String getEmail() {
-		return Email;
-	}
-	public void setEmail(String email) {
-		Email = email;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	public String getPassword() {
 		return Password;
@@ -39,29 +32,28 @@ public class User
 		Password = password;
 	}
 	public String getRole() {
-		return Role;
+		return role;
 	}
 	public void setRole(String role) {
-		Role = role;
+		this.role = role;
 	}
 	public String getStatus() {
-		return Status;
+		return status;
 	}
 	public void setStatus(String status) {
-		Status = status;
+		this.status = status;
 	}
-	public String getIsonline() {
-		return isonline;
+	public String getIsOnline() {
+		return isOnline;
 	}
-	public void setIsonline(String isonline) {
-		this.isonline = isonline;
+	public void setIsOnline(String isOnline) {
+		this.isOnline = isOnline;
 	}
-	public int getLikes() {
-		return likes;
+	public String getEmailId() {
+		return emailId;
 	}
-	public void setLikes(int likes) {
-		this.likes = likes;
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
 	}
-}
 	
-	
+}	

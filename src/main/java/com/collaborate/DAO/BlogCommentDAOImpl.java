@@ -9,6 +9,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.collaborate.Model.Blog;
 import com.collaborate.Model.BlogComment;
 
 @Repository("blogcommentDAO")
@@ -43,7 +44,7 @@ public class BlogCommentDAOImpl implements BlogCommentDAO {
 		{
 			
 			
-			 return  (BlogComment)sessionFactory.getCurrentSession().createQuery("from BlogComment where Id="+id);
+			 return  (BlogComment)sessionFactory.getCurrentSession().createQuery("from BlogComment where blogId="+id);
 			
 			
 		}

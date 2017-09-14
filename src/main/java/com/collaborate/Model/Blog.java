@@ -1,22 +1,30 @@
 package com.collaborate.Model;
 
 
-
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table
+import org.springframework.stereotype.Component;
 
+@Entity
+@Table(name="Blog_details")
+@Component
 public class Blog {
+
 	@Id
 	private int blogId;
 	private String blogName,blogContent,status,username;
 	private int likes;
 	private Date createDate;
+	public int getBlogId() {
+		return blogId;
+	}
+	public void setBlogId(int blogId) {
+		this.blogId = blogId;
+	}
 	public String getBlogName() {
 		return blogName;
 	}
@@ -47,19 +55,12 @@ public class Blog {
 	public void setLikes(int likes) {
 		this.likes = likes;
 	}
-	
-
 	public Date getCreateDate() {
 		return createDate;
 	}
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
-	public void setBlogId(int blogId) {
-		this.blogId = blogId;
-	}
 	
-	private int getBlogId() {
-		return blogId;
-	}
+	
 }
