@@ -81,9 +81,16 @@ public class ForumDAOImpl implements ForumDAO{
 		
 		try
 		{
-			
+			Forum forum =new Forum();
 			@SuppressWarnings("rawtypes")
-			Query query = (Query) sessionFactory.getCurrentSession().createQuery("update Forum where forumId="+forumId);
+			Query query = (Query) sessionFactory.getCurrentSession().createQuery("update Forum set  forumName=?,forumContent=?,status=?,userid=?,createDate=?,forumId=? where forumId="+forumId);
+			  
+			  query.setParameter(0,"forum.getForumName()");
+			  query.setParameter(1,"forum.getForumContent()");
+			  query.setParameter(2,"forum.getStatus()");
+			  query.setParameter(3,forum.getUserId());
+			  query.setParameter(4,forum.getCreateDate());
+			  query.setParameter(5,forum.getForumId());
 			  query.executeUpdate();
 			return true;
 		}
@@ -92,15 +99,16 @@ public class ForumDAOImpl implements ForumDAO{
 				System.out.println("Exception Arised"+e);
 			 return false;
 		}
-	}
+	}	
 	@Transactional
 	public boolean deleteForum(int forumId) {
 		
 		try
 		{
 			
-			sessionFactory.getCurrentSession().delete(forumId);
-			return true;
+		Query query =	(Query)sessionFactory.getCurrentSession().createQuery("delete Forum where forumId="+forumId);
+		query.executeUpdate();	
+		return true;
 		}
 		catch(Exception e)
 		{
@@ -108,6 +116,5 @@ public class ForumDAOImpl implements ForumDAO{
 			return false;
 		}
 	}
-	
 	
 }

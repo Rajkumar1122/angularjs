@@ -26,8 +26,8 @@ public class ForumDAOTest {
 	{
 		//Forum forum=new Forum();
 		forum.setForumId(111);
-		forum.setForumName("Dravid");
-		forum.setForumContent("Dravid is a Cricket Coach");
+		forum.setForumName("Raju");
+		forum.setForumContent("Rajkumar");
 		
 		forum.setCreateDate(new java.util.Date());
 		forum.setStatus("NA");
@@ -42,8 +42,8 @@ public class ForumDAOTest {
 	{
 	Forum forum = new Forum();
 	forum.setForumId(111);
-	forum.setForumName("Dravid");
-	forum.setForumContent("Dravid plays Cricket ");
+	forum.setForumName("Raju");
+	forum.setForumContent("Rajkumar");
 	forum.setCreateDate(new java.util.Date());
 	forum.setUserId(1001);
 	forum.setStatus("NA");
@@ -72,8 +72,8 @@ public class ForumDAOTest {
 	{
 		Forum forum=new Forum();
 		forum.setForumId(111);
-		forum.setForumName("Dravid");
-		forum.setForumContent("Dravid is a Cricket Coach");
+		forum.setForumName("Raju");
+		forum.setForumContent("Rajkumar");
 		forum.setCreateDate(new java.util.Date());
 		forum.setStatus("NA");
 		assertTrue("Problem in approving Forum",forumDAO.approveForum(forum));	
