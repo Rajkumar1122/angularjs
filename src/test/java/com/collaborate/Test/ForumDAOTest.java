@@ -24,7 +24,7 @@ public class ForumDAOTest {
 	@Test
 	public void createForumtest()
 	{
-		//Forum forum=new Forum();
+		//Forum forum=new Forum();        
 		forum.setForumId(111);
 		forum.setForumName("Raju");
 		forum.setForumContent("Rajkumar");
