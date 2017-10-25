@@ -1,5 +1,4 @@
 package com.collaborate.DAO;
-
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -9,21 +8,20 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.collaborate.Model.Blog;
 import com.collaborate.Model.Forum;
 
 @Repository("forumDAO")
-public class ForumDAOImpl implements ForumDAO{
+public class ForumDaoImpl implements ForumDao {
 	
 	@Autowired
 	SessionFactory sessionFactory;
 	
-	public ForumDAOImpl(SessionFactory sessionFactory)
+	public ForumDaoImpl(SessionFactory sessionFactory)
 	{
 		this.sessionFactory=sessionFactory;
 	}
 	@Transactional
-	public boolean createForum(Forum forum)
+	public boolean createNewForum(Forum f)
 	{
 	try
 	{
@@ -38,16 +36,12 @@ public class ForumDAOImpl implements ForumDAO{
 	
 }
 	@Transactional
-	public Forum getForumdetails(int forumId) {
+	public Forum getForum(int forumId) {
 		
 		try
 		{
-			
-			
 			 return  (Forum)sessionFactory.getCurrentSession().createQuery("from Forum where forumId="+forumId);
-			
-			
-		}
+	    }
 		catch(Exception e)
 		{
 			 System.out.println("Exception Arised"+e);
@@ -55,7 +49,7 @@ public class ForumDAOImpl implements ForumDAO{
 		}
 	}
 	@Transactional
-	public List<Forum> getForum() {
+	public List<Forum> getForumList(String userName) {
 		
 		 @SuppressWarnings("unchecked")
 		List<Forum> listForum = (List<Forum>) sessionFactory.getCurrentSession().createQuery("from Forum");
@@ -83,7 +77,7 @@ public class ForumDAOImpl implements ForumDAO{
 		{
 			Forum forum =new Forum();
 			@SuppressWarnings("rawtypes")
-			Query query = (Query) sessionFactory.getCurrentSession().createQuery("update Forum set  forumName=?,forumContent=?,status=?,userid=?,createDate=?,forumId=? where forumId="+forumId);
+			Query query = (Query) sessionFactory.getCurrentSession().createQuery("update Forum set forumName=?,forumContent=?,status=?,userid=?,createDate=?,forumId=? where forumId="+forumId);
 			  
 			  query.setParameter(0,"forum.getForumName()");
 			  query.setParameter(1,"forum.getForumContent()");
@@ -99,14 +93,14 @@ public class ForumDAOImpl implements ForumDAO{
 				System.out.println("Exception Arised"+e);
 			 return false;
 		}
-	}	
+	}
 	@Transactional
-	public boolean deleteForum(int forumId) {
+	public boolean delete(int fid) {
 		
 		try
 		{
 			
-		Query query =	(Query)sessionFactory.getCurrentSession().createQuery("delete Forum where forumId="+forumId);
+		Query query =	(Query)sessionFactory.getCurrentSession().createQuery("delete Forum where forumId="+fid);
 		query.executeUpdate();	
 		return true;
 		}
@@ -116,5 +110,18 @@ public class ForumDAOImpl implements ForumDAO{
 			return false;
 		}
 	}
+	public boolean createForum(Forum forum) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public List<Forum> getForum() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public boolean deleteForum(int forumId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
+	 
 }

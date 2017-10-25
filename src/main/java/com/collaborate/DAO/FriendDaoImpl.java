@@ -2,39 +2,37 @@ package com.collaborate.DAO;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
-import com.niit.model.Friend;
-import com.niit.model.Users;
+import com.collaborate.Model.Friend;
+import com.collaborate.Model.User;
+@SuppressWarnings("deprecation")
 @Repository
 public class FriendDaoImpl implements FriendDao {
 	@Autowired
 	private SessionFactory sessionFactory;
-	public List<Users> listOfSuggestedUsers(String username) 
+	public List<User> listOfSuggestedUsers(String username) 
 	{
 		
 		Session session=sessionFactory.openSession();
 		SQLQuery sqlQuery=session.createSQLQuery("select * from users where username in " 
 							 					+"(select username from users where username!=? "
 												+"minus "
-												+"(select fromId from friend_batch19 where toId=?"
+												+"(select fromId from friend where toId=?"
 												+"union "
-												+"select toId from friend_batch19 where fromId=? ))");
+												+"select toId from friend where fromId=? ))");
 		sqlQuery.setString(0, username);
 		sqlQuery.setString(1, username);
 		sqlQuery.setString(2, username);
-		sqlQuery.addEntity(Users.class);
-		List<Users> suggestedUsersList=sqlQuery.list();
+		sqlQuery.addEntity(User.class);
+		List<User> suggestedUserList=sqlQuery.list();
 		session.close();
-		return suggestedUsersList;
+		return suggestedUserList;
 		
 	}
 	
@@ -48,9 +46,7 @@ public class FriendDaoImpl implements FriendDao {
 		session.flush();
 		session.close();
 	}
-
-	
-	public List<Friend> listOfPendingRequest(String toUsername)
+public List<Friend> listOfPendingRequest(String toUsername)
 	{
 		Session session=sessionFactory.openSession();
 		Query query=session.createQuery("from Friend where toId=? and status=?");
@@ -60,21 +56,6 @@ public class FriendDaoImpl implements FriendDao {
 		session.close();
 		return pendingRequests;
 	}
-
-/*	public void updatePendingRequest(String fromId,String toId,char status) 
-	{
-		Session session=sessionFactory.openSession();
-		Query query=session.createQuery("from Friend where fromId=? and toId=?");
-		query.setString(0, fromId);
-		query.setString(1, toId);
-		Friend friend=(Friend)query.uniqueResult();
-		friend.setStatus(status);
-		session.update(friend);
-		session.flush();
-		session.close();
-	}
-	*/
-	
 	
 public void updatePendingRequest(String fromId, String toId, char status) {
 		Session session = sessionFactory.openSession();
@@ -86,14 +67,7 @@ public void updatePendingRequest(String fromId, String toId, char status) {
 		session.flush();
 		session.close();
 	}
-    
-	
-	
-	
-	
-	
-	
-	public List<Friend> listOfFriends(String Username)
+    public List<Friend> listOfFriends(String Username)
 	{
 		Session session=sessionFactory.openSession();
 		Query query=session.createQuery("from Friend where(fromId=? or toId=?) and status=?");

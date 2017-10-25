@@ -1,7 +1,7 @@
 package com.collaborate.Test;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import com.collaborate.DAO.BlogDAO;
+import com.collaborate.DAO.BlogDao;
 import com.collaborate.Model.Blog;
 import static org.junit.Assert.*;
 import javax.transaction.Transactional;
@@ -9,7 +9,7 @@ import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 public class BlogDAOTest {
-	static BlogDAO blogDAO;
+	static BlogDao blogDAO;
 	static Blog blog;
 	@BeforeClass
 	public static void initialize()
@@ -17,7 +17,7 @@ public class BlogDAOTest {
 		AnnotationConfigApplicationContext annotationConfigAppContext=new AnnotationConfigApplicationContext();
 		annotationConfigAppContext.scan("com.collaborate");
 		annotationConfigAppContext.refresh();
-		blogDAO=(BlogDAO)annotationConfigAppContext.getBean("blogDAO");
+		blogDAO=(BlogDao)annotationConfigAppContext.getBean("blogDAO");
 	    blog=(Blog)annotationConfigAppContext.getBean("blog");
 	}
 	

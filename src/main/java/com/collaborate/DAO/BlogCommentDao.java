@@ -1,10 +1,13 @@
 package com.collaborate.DAO;
+
+
+
 import java.util.List;
 
 
 import com.collaborate.Model.BlogComment;
 
-public interface BlogCommentDAO {
+public interface BlogCommentDao {
 
 	public boolean createBlog(BlogComment blogcomment);
 	public BlogComment getBlogcommentdetails(int id);

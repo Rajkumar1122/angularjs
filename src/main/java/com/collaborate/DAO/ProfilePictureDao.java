@@ -8,3 +8,4 @@ public interface ProfilePictureDao {
 	ProfilePicture getProfilePicture(String username);
 	
 }
+

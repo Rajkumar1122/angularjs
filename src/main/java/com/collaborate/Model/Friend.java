@@ -1,4 +1,6 @@
 package com.collaborate.Model;
+
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -6,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="friend_batch19")
+@Table(name="friend")
 public class Friend
 {
 	@Id

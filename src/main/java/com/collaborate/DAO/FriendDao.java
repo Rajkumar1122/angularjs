@@ -3,12 +3,12 @@ package com.collaborate.DAO;
 
 import java.util.List;
 
-import com.niit.model.Friend;
-import com.niit.model.Users;
+import com.collaborate.Model.Friend;
+import com.collaborate.Model.User;
 
 public interface FriendDao {
 
-	List<Users> listOfSuggestedUsers(String Username);
+	List<User> listOfSuggestedUsers(String Username);
 	void friendRequest(String fromUsername, String toUsername);
 	List<Friend> listOfPendingRequest(String loggedInUsername);
 	void updatePendingRequest(String fromId,String toId,char status);

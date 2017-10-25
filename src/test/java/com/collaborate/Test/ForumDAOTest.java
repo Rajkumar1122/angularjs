@@ -2,14 +2,14 @@ package com.collaborate.Test;
 
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import com.collaborate.DAO.ForumDAO;
+import com.collaborate.DAO.ForumDao;
 import com.collaborate.Model.Forum;
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 public class ForumDAOTest {
-	static ForumDAO forumDAO;
+	static ForumDao forumDAO;
 	static Forum forum;
 	@BeforeClass
 	public static void initialize()
@@ -17,7 +17,7 @@ public class ForumDAOTest {
 		AnnotationConfigApplicationContext annotationConfigAppContext=new AnnotationConfigApplicationContext();
 		annotationConfigAppContext.scan("com.collaborate");
 		annotationConfigAppContext.refresh();
-		forumDAO=(ForumDAO)annotationConfigAppContext.getBean("forumDAO");
+		forumDAO=(ForumDao)annotationConfigAppContext.getBean("forumDAO");
 	    forum=(Forum)annotationConfigAppContext.getBean("forum");
 	}
 	
